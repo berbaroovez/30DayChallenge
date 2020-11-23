@@ -1,42 +1,47 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+//rafce
 import React from "react"
-
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+import styled from "styled-components"
+import { Link } from "gatsby"
+const header = () => {
+  return (
+    <>
+      <Nav>
+        <NavItem>Home</NavItem>
+        <NavItem>Projects</NavItem>
+        <NavItem>Contact</NavItem>
+      </Nav>
+    </>
+  )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+export default header
 
-export default Header
+const Nav = styled.nav`
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  width: 100vw;
+  gap: 30px;
+  justify-content: center;
+`
+const NavItem = styled(Link)`
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  padding-top: 20px;
+
+  font-size: clamp(1rem, 5vw, 1.5rem);
+
+  &:hover:after {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 100%;
+    background: black;
+    top: 0;
+    left: 0;
+  }
+
+  /* @media screen and (max-width: 868px) {
+   font-size:
+  } */
+`

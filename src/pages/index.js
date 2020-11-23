@@ -4,7 +4,8 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-
+import ProjectCard from "../components/ProjectCard"
+import Pic from "../images/TESTREACT.png"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -15,7 +16,11 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <ProjectCard
+      Image={Pic}
+      Title="30 Day Challenge"
+      Description="Create one webpage a day for 30 days. 1 hour to design and implement each page."
+    />
   </Layout>
 )
 
